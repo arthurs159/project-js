@@ -1,8 +1,14 @@
 
 // Menu Mobile
+var menu = document.querySelector('#sliding-header-menu-outer');
 
+document.querySelector('#hamburguer-icon').onclick = function () {
+  menu.style.right = "0";
+}
 
-
+document.querySelector(".close-icon").onclick = function() {
+  menu.style.right = "-320px";
+}
 
 // About us Tab
 
@@ -14,6 +20,28 @@ var aboutUs = {
 
 var unseletected_color = "#646872";
 var seletected_color = "#2A2D34";
+
+var about_tags = document.getElementsByClassName("single-tab");
+console.log(about_tags);
+
+  for(var i = 0; i < about_tags.length; i++) {
+    about_tags[i].onclick = function() {
+
+      for(var b = 0; b < about_tags.length; b++) {
+        about_tags[b].style['background-color'] = unseletected_color;
+        about_tags[b].style['font-weight'] = "normal";
+      }
+
+      this.style['background-color'] = seletected_color;
+      this.style['font-weight'] = "bold";
+
+      var selecionado = this.innerHTML;
+
+      document.getElementById("box-text").innerHTML = aboutUs[selecionado];
+    }
+  }
+
+
 
 
 
