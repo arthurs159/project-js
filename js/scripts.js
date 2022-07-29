@@ -41,10 +41,6 @@ console.log(about_tags);
     }
   }
 
-
-
-
-
 // Slider de serviços
 
 var our_services = [
@@ -65,6 +61,43 @@ var our_services = [
   
 ];
 
+//service-previous
+//service-next
+//service-title
+//service-text
+
+var servico_atual = 0;
+
+document.getElementById("service-previous").onclick = function() {
+  
+  if (servico_atual == 0) {
+    var servico_anterior = our_services.length -1
+    console.log(servico_anterior);
+  } else {
+    var servico_anterior = servico_atual - 1;
+    console.log(servico_anterior);
+  }
+
+  document.getElementById("service-title").innerHTML = our_services[servico_anterior].title;
+  document.getElementById("service-text").innerHTML = our_services[servico_anterior].text;
+
+  servico_atual = servico_anterior;
+  
+}
+
+document.getElementById("service-next").onclick = function() {
+  
+  if (servico_atual == 0) {
+    var servico_anterior = our_services.length -1
+  } else {
+    var servico_anterior = servico_atual - 1;
+  }
+
+  document.getElementById("service-title").innerHTML = our_services[servico_anterior].title;
+  document.getElementById("service-text").innerHTML = our_services[servico_anterior].text;
+
+  servico_atual = servico_anterior;
+}
 
 // Data Footer
 
